@@ -8,6 +8,7 @@ from .serializers import TaskSerializer, TaskCreateUpdateSerializer, CommentSeri
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
     # permission_classes = [permissions.IsAuthenticated]
 
     def get_serializer_class(self):
@@ -77,6 +78,7 @@ class TaskViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
     # permission_classes = [permissions.IsAuthenticated]
 
     def get_serializer_class(self):

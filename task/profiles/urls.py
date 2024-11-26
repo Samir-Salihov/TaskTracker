@@ -1,15 +1,3 @@
-# from django.urls import path
-# from .views import user_profile
-#
-# urlpatterns = [
-#     path('api/v1/profile/', user_profile, name='profile'),
-# ]
-
-
-# profiles/urls.py
-
-# profiles/urls.py
-
 from django.urls import path
 from .views import user_profile, get_user_profile
 

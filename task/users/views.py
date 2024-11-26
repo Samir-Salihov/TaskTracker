@@ -51,16 +51,8 @@ def log_out_user(request):
 @permission_classes([IsAuthenticated])
 def create_project(request):
     serializer = ProjectSerializer(data=request.data)
-    if serializer.is_valid():
-        project = serializer.save()
-        request.user.current_projects.add(project)
-        return Response({'data': {"project_id": project.id}},
-                        status=status.HTTP_201_CREATED)
-    return Response({'error': {'code': status.HTTP_422_UNPROCESSABLE_ENTITY,
-                               "message": "Validation error"}},
-                    status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-
-
-
-
+    serializer.is_valid(raise_exception=True)
+    project = serializer.save()
+    request.user.current_projects.add(project)
+    return Response({'data': {"project_id": project.id}},
+                    status=status.HTTP_201_CREATED)
